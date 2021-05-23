@@ -1,8 +1,13 @@
 <h1>User info</h1>
 
+<%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, format:'jpeg', fallback:'no_image.jpg') %>
+
 <h3>名前</h3>
+<%= current_user.name %>
 
 <h3>自己紹介</h3>
+<%= current_user.introduction %>
+
 
 <h1>New Book</h1>
 <%= form_with model:@book, local:true do |f| %>
@@ -14,8 +19,19 @@
 
 <%= f.submit"Create Book" %>
 
+<% end %>
+
 <h1>Books</h1>
 
 <h3>本のタイトル</h3>
 
 <h3>感想</h3>
+
+<% @books.each do |book| %>
+
+<%= attachment_image_tag(@user, :profile_image, :fill, 40, 40, format:'jpeg', fallback:'no_image.jpg') %>
+
+<%= book.title %>
+<%= book.body %>
+
+<% end %>

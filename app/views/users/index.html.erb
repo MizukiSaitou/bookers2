@@ -3,3 +3,14 @@
 <h3>画像</h3>
 
 <h3>名前</h3>
+
+<% @users.each do |user| %>
+
+<%= user.profile_image_id %>
+
+<%= user.name %>
+
+<%= user.introduction %>
+
+
+<% end %>
