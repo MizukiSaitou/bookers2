@@ -8,6 +8,8 @@
 <h3>自己紹介</h3>
 <%= current_user.introduction %>
 
+<%= link_to"create", edit_user_path(current_user) %>
+
 
 <h1>New Book</h1>
 <%= form_with model:@book, local:true do |f| %>
@@ -31,7 +33,9 @@
 
 <%= attachment_image_tag(@user, :profile_image, :fill, 40, 40, format:'jpeg', fallback:'no_image.jpg') %>
 
+<%= link_to book_path(book.user.id) do %>
 <%= book.title %>
+<% end %>
 <%= book.body %>
 
 <% end %>
